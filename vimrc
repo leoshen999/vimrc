@@ -1,4 +1,3 @@
-" Latest update: 2018/09/21 10:21
 
 set langmenu=en_US
 let $LANG = 'en_US'
