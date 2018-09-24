@@ -39,6 +39,7 @@ set virtualedit=onemore
 set laststatus=2
 set pastetoggle=<F2>
 set whichwrap+=<,>,[,]
+
 let mapleader = " "
 
 " Just forget what this is for
@@ -320,6 +321,11 @@ function! ClangFormat(isAll)
     py3f ~/.vim/clang-format.py
   endif
 endfunction
+if has("win32")
+  let g:clang_format_path = 'clang-format.bat'
+else
+  let g:clang_format_path = 'clang-format'
+endif
 nnoremap <leader>fw :call ClangFormat(1)<cr>:w<cr>
 nnoremap <leader>ff :call ClangFormat(1)<cr>
 vnoremap <leader>f :call ClangFormat(0)<cr>
