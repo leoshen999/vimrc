@@ -292,9 +292,9 @@ nmap <leader>` :noh <BAR> call ClearMatchHighlights()<CR>
 function! GetCurrentSession()
   if v:this_session==''
     if has("win32")
-      return '~/vimfiles/Session.vim'
+      return '~/vimfiles/saved_session.vim'
     else
-      return '~/.vim/Session.vim'
+      return '~/.vim/saved_session.vim'
     endif
   else
     return v:this_session
