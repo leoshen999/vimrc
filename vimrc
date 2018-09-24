@@ -1,8 +1,9 @@
-
-set langmenu=en_US
-let $LANG = 'en_US'
+" General settings
 syntax on
 filetype plugin indent on
+let $LANG='en_US'
+
+set langmenu=en_US
 set encoding=utf-8
 set nocompatible
 set noswapfile
@@ -67,9 +68,6 @@ nnoremap <leader>b :b#<cr>
 nnoremap <leader>n :echo @%<cr>
 nnoremap <leader>dt :difft<cr>
 nnoremap <leader>do :diffo<cr>
-nnoremap <leader>fw :call ClangFormat(1)<cr>:w<cr>
-nnoremap <leader>ff :call ClangFormat(1)<cr>
-vnoremap <leader>f :call ClangFormat(0)<cr>
 " Not really used now
 "nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 "nnoremap <C-J> Lzz
@@ -108,7 +106,6 @@ hi EndOfBuffer cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=
 hi Ignore cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
 " selection
 hi Visual ctermbg=237 guibg=#3a3a3a
-
 " red bg
 hi Search cterm=NONE ctermfg=NONE ctermbg=88 gui=NONE guifg=NONE guibg=#870000
 hi IncSearch cterm=NONE ctermfg=NONE ctermbg=160 gui=NONE guifg=NONE guibg=#d70000
@@ -122,7 +119,6 @@ hi Question cterm=bold ctermfg=51 ctermbg=NONE gui=bold guifg=#00ffff guibg=NONE
 " magenta
 hi SpecialKey cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
 hi NonText cterm=NONE ctermfg=88 ctermbg=NONE gui=NONE guifg=#870000 guibg=NONE
-
 " comment
 hi Comment cterm=italic ctermfg=60 ctermbg=NONE gui=italic guifg=#5f5f87 guibg=NONE
 hi Todo cterm=italic,reverse ctermfg=60 ctermbg=NONE gui=italic,reverse guifg=#5f5f87 guibg=NONE
@@ -169,18 +165,15 @@ hi DiffText cterm=bold ctermfg=NONE ctermbg=124 gui=bold guifg=NONE guibg=#af000
 hi MatchParen cterm=underline ctermfg=198 ctermbg=NONE gui=underline guifg=#ff0087 guibg=NONE
 hi Folded cterm=NONE ctermfg=32 ctermbg=NONE gui=NONE guifg=#0087d7 guibg=NONE
 hi Underlined cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE guibg=NONE
-
 " tab line
 hi TabLine cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=#080808
 hi TabLineFill cterm=NONE ctermfg=16 ctermbg=16 gui=NONE guifg=#000000 guibg=#000000
 hi TabLineSel cterm=NONE ctermfg=255 ctermbg=239 gui=NONE guifg=#eeeeee guibg=#4e4e4e
 hi Title cterm=NONE ctermfg=185 gui=NONE guifg=#d7d75f
-
 " directory
 hi Directory cterm=NONE ctermfg=43 gui=NONE guifg=#00d7af
-
 " diff file
-" NOTE: the default highlighting for diff file is weird.
+" The default highlighting for diff file is weird.
 " Force to set their values to workaround.
 hi diffRemoved cterm=NONE ctermfg=161 ctermbg=NONE gui=NONE guifg=#d7005f guibg=NONE
 hi diffAdded cterm=NONE ctermfg=41 ctermbg=NONE gui=NONE guifg=#00d75f guibg=NONE
@@ -190,7 +183,6 @@ hi! link diffSubname Normal
 "cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 hi diffLine cterm=NONE ctermfg=75 ctermbg=NONE gui=NONE guifg=#5fafff guibg=NONE
 hi diffFile cterm=NONE ctermfg=229 ctermbg=NONE gui=NONE guifg=#ffffaf guibg=NONE
-
 " QuickFixLine not set
 " ToolbarLine, ToolbarButton not set
 " Pmenu, PmenuSel, PmenuSbar, PmenuThumb not set
@@ -235,11 +227,10 @@ endfunction
 set statusline=%1*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
 
 " Multiple keyword marks
-" NOTE(leoshen): empty pattern means current line
-hi KeywordTemp2 cterm=bold ctermbg=54 gui=bold guibg=#5f0087
-hi KeywordTemp1 cterm=bold ctermbg=89 gui=bold guibg=#87005f
 hi KeywordTemp0 cterm=bold,reverse gui=bold,reverse
-
+hi KeywordTemp1 cterm=bold ctermbg=89 gui=bold guibg=#87005f
+hi KeywordTemp2 cterm=bold ctermbg=54 gui=bold guibg=#5f0087
+" Empty pattern means current line
 function! SetMatchHighlight(index, pattern)
   if a:index !=0 && a:index != 1 && a:index != 2
     return
@@ -313,8 +304,8 @@ nnoremap <F8> :wa <BAR> exe "mks! ".GetCurrentSession() <CR>
 nnoremap <S-F8> :wa <BAR> tabnew <BAR> tabonly <BAR> exe "so ".GetCurrentSession() <CR>
 
 " Syntax highlight recovering and redraw
-" this may be useful since highlight sometimes crashed when using folding
-" use redraw to clean redundant pixels color caused by rendering error
+" This may be useful since highlight sometimes crashed when using folding.
+" Redraw to clean redundant pixels color caused by rendering error.
 nnoremap <F12> :syn sync fromstart <CR><C-L>
 
 " Python script for clang-format
@@ -329,6 +320,9 @@ function! ClangFormat(isAll)
     py3f ~/.vim/clang-format.py
   endif
 endfunction
+nnoremap <leader>fw :call ClangFormat(1)<cr>:w<cr>
+nnoremap <leader>ff :call ClangFormat(1)<cr>
+vnoremap <leader>f :call ClangFormat(0)<cr>
 
 " Open complement file according to extension
 " c/cpp/cc <--> h/hpp
