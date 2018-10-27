@@ -174,10 +174,10 @@ hi Title cterm=NONE ctermfg=185 gui=NONE guifg=#d7d75f
 " directory
 hi Directory cterm=NONE ctermfg=43 gui=NONE guifg=#00d7af
 " pmenu
-hi Pmenu gui=NONE guifg=#d0d0d0 guibg=#080808
-hi PmenuSel gui=bold guifg=#ffd75f guibg=#080808
-hi PmenuSbar guibg=#080808
-hi PmenuThumb guibg=#4e4e4e
+hi Pmenu cterm=NONE ctermfg=252 ctermbg=232 gui=NONE guifg=#d0d0d0 guibg=#080808
+hi PmenuSel cterm=bold ctermfg=221 ctermbg=232 gui=bold guifg=#ffd75f guibg=#080808
+hi PmenuSbar ctermbg=232 guibg=#080808
+hi PmenuThumb ctermbg=239 guibg=#4e4e4e
 " diff file
 " The default highlighting for diff file is weird.
 " Force to set their values to workaround.
