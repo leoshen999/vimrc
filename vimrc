@@ -184,9 +184,7 @@ hi PmenuThumb guibg=#4e4e4e
 hi diffRemoved cterm=NONE ctermfg=161 ctermbg=NONE gui=NONE guifg=#d7005f guibg=NONE
 hi diffAdded cterm=NONE ctermfg=41 ctermbg=NONE gui=NONE guifg=#00d75f guibg=NONE
 hi! link diffChanged Normal
-"diffChanged cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 hi! link diffSubname Normal
-"cterm=NONE ctermfg=NONE ctermbg=NONE gui=NONE guifg=NONE guibg=NONE
 hi diffLine cterm=NONE ctermfg=75 ctermbg=NONE gui=NONE guifg=#5fafff guibg=NONE
 hi diffFile cterm=NONE ctermfg=229 ctermbg=NONE gui=NONE guifg=#ffffaf guibg=NONE
 " QuickFixLine not set
