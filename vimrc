@@ -173,6 +173,11 @@ hi TabLineSel cterm=NONE ctermfg=255 ctermbg=239 gui=NONE guifg=#eeeeee guibg=#4
 hi Title cterm=NONE ctermfg=185 gui=NONE guifg=#d7d75f
 " directory
 hi Directory cterm=NONE ctermfg=43 gui=NONE guifg=#00d7af
+" pmenu
+hi Pmenu gui=NONE guifg=#d0d0d0 guibg=#080808
+hi PmenuSel gui=bold guifg=#ffd75f guibg=#080808
+hi PmenuSbar guibg=#080808
+hi PmenuThumb guibg=#4e4e4e
 " diff file
 " The default highlighting for diff file is weird.
 " Force to set their values to workaround.
@@ -186,7 +191,6 @@ hi diffLine cterm=NONE ctermfg=75 ctermbg=NONE gui=NONE guifg=#5fafff guibg=NONE
 hi diffFile cterm=NONE ctermfg=229 ctermbg=NONE gui=NONE guifg=#ffffaf guibg=NONE
 " QuickFixLine not set
 " ToolbarLine, ToolbarButton not set
-" Pmenu, PmenuSel, PmenuSbar, PmenuThumb not set
 " SpellBad, Spellcap, SpellRare, SpellLocal not set
 " SignColumn, FoldColumn not set
 " VisualNOS not set
