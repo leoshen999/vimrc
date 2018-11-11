@@ -40,6 +40,13 @@ set laststatus=2
 set pastetoggle=<F2>
 set whichwrap+=<,>,[,]
 
+function! OnSynxtaxIsSet()
+  if &syntax == "gitcommit"
+    setlocal colorcolumn=72
+  endif
+endfunction
+au Syntax * call OnSynxtaxIsSet()
+
 let mapleader = " "
 
 " Just forget what this is for
