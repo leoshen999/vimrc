@@ -107,7 +107,6 @@ hi StatusLineNc cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=
 hi LineNr cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=#080808
 hi CursorLineNr cterm=NONE ctermfg=221 ctermbg=232 gui=NONE guifg=#ffd75f guibg=#080808
 hi WildMenu cterm=NONE ctermfg=221 ctermbg=232 gui=NONE guifg=#ffd75f guibg=#080808
-hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=232 gui=NONE guifg=NONE guibg=#080808
 " hide
 hi Conceal cterm=NONE ctermfg=239 cterm=NONE gui=NONE guifg=#4e4e4e guibg=NONE
 hi EndOfBuffer cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
@@ -202,6 +201,22 @@ hi diffFile cterm=NONE ctermfg=229 ctermbg=NONE gui=NONE guifg=#ffffaf guibg=NON
 " StatusLineTerm, StatusLineTermNC not set
 " FoldColumn not set
 " Tag not set
+
+" Enhance color column color for better visibility when needed
+function! ToggleColorColumnEnhancement()
+  if !exists('g:colorColumnEnhancement')
+    let g:colorColumnEnhancement = 0
+  else
+    let g:colorColumnEnhancement = !g:colorColumnEnhancement
+  endif
+  if g:colorColumnEnhancement
+    hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=52 gui=NONE guifg=NONE guibg=#5f0000
+  else
+    hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=232 gui=NONE guifg=NONE guibg=#080808
+  endif
+endfunction
+call ToggleColorColumnEnhancement()
+nnoremap <F11> :call ToggleColorColumnEnhancement()<CR>
 
 " Effect of normal/insert mode
 function! EnterInsertMode(mode)
