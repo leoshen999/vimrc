@@ -73,7 +73,7 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 nnoremap <leader>e :e 
 nnoremap <leader>b :b#<cr>
-nnoremap <leader>n :echo @%<cr>
+nnoremap <leader>n :echo expand('%:p')<cr>
 nnoremap <leader>dt :difft<cr>
 nnoremap <leader>do :diffo<cr>
 " Not really used now
