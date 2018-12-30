@@ -3,7 +3,8 @@ syntax on
 filetype plugin indent on
 let $LANG='en_US'
 let mapleader = " "
-let s:myVimDir = fnamemodify($MYVIMRC, ':p:h')
+" Workaround Win32 backslash in filepath issue
+let s:myVimDir = substitute(fnamemodify($MYVIMRC, ':p:h'), '\', '/', 'g')
 
 set langmenu=en_US
 set encoding=utf-8
