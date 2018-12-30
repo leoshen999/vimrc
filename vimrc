@@ -241,7 +241,7 @@ ino <C-C> <ESC>
 call EnterNormalMode()
 
 " Effect of statusline
-hi User1 cterm=NONE ctermfg=225 ctermbg=160 gui=NONE guifg=#ffdfff guibg=#d70000
+hi! link User1 ErrorMsg
 function! GetModifiedPrefix(isModified)
   if &modified == a:isModified
     return '['.bufnr("%").']'.fnamemodify(bufname("%"),':t')
