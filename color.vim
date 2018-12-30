@@ -112,8 +112,8 @@ hi! link Error ErrorMsg
 " diff file
 " The default highlighting for diff file is weird.
 " Force to set their values to workaround.
-hi diffRemoved term=NONE cterm=NONE ctermfg=108 ctermbg=NONE gui=NONE guifg=#87af87 guibg=NONE
-hi diffAdded term=NONE cterm=NONE ctermfg=174 ctermbg=NONE gui=NONE guifg=#d78787 guibg=NONE
+hi diffAdded term=NONE cterm=NONE ctermfg=108 ctermbg=NONE gui=NONE guifg=#87af87 guibg=NONE
+hi diffRemoved term=NONE cterm=NONE ctermfg=174 ctermbg=NONE gui=NONE guifg=#d78787 guibg=NONE
 hi! link diffChanged Normal
 hi! link diffSubname Normal
 hi diffLine term=NONE cterm=NONE ctermfg=110 ctermbg=NONE gui=NONE guifg=#87afd7 guibg=NONE
