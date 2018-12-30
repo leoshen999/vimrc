@@ -252,9 +252,9 @@ endfunction
 set statusline=%1*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
 
 " Multiple keyword marks
-hi KeywordTemp0 cterm=bold,reverse gui=bold,reverse
-hi KeywordTemp1 cterm=bold ctermbg=89 gui=bold guibg=#87005f
-hi KeywordTemp2 cterm=bold ctermbg=54 gui=bold guibg=#5f0087
+hi MyKeyword0 cterm=bold,reverse gui=bold,reverse
+hi MyKeyword1 cterm=bold ctermbg=89 gui=bold guibg=#87005f
+hi MyKeyword2 cterm=bold ctermbg=54 gui=bold guibg=#5f0087
 " Empty pattern means current line
 function! SetMatchHighlight(index, pattern)
   if a:index !=0 && a:index != 1 && a:index != 2
@@ -266,7 +266,7 @@ function! SetMatchHighlight(index, pattern)
   if(a:pattern == '')
     let l:targetPattern='^'.escape(getline('.'),'~.\^$*[]').'$'
   endif
-  let w:myMatchHighlights[a:index] = matchadd('KeywordTemp'.a:index, l:targetPattern)
+  let w:myMatchHighlights[a:index] = matchadd('MyKeyword'.a:index, l:targetPattern)
   let w:myMatchPatterns[a:index] = l:targetPattern
   let w:myMatchPatternsConcat .= (w:myMatchPatternsConcat != '' ? '\|' : '').l:targetPattern
 endfunction
