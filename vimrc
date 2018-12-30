@@ -2,6 +2,8 @@
 syntax on
 filetype plugin indent on
 let $LANG='en_US'
+let mapleader = " "
+let s:myVimDir = fnamemodify($MYVIMRC, ':p:h')
 
 set langmenu=en_US
 set encoding=utf-8
@@ -40,14 +42,13 @@ set laststatus=2
 set pastetoggle=<F2>
 set whichwrap+=<,>,[,]
 
+" colorcolumn should be 72 for gitcommit
 function! OnSynxtaxIsSet()
   if &syntax == "gitcommit"
     setlocal colorcolumn=72
   endif
 endfunction
 au Syntax * call OnSynxtaxIsSet()
-
-let mapleader = " "
 
 " Just forget what this is for
 if !has("gui_running")
@@ -81,126 +82,16 @@ nnoremap <leader>do :diffo<cr>
 "nnoremap <C-J> Lzz
 "nnoremap <C-K> Hzz
 
-" Change viminfo location on win32
-if has("win32")
-  set viminfo+=n~/vimfiles/viminfo
-else
-  set viminfo+=n~/.vim/viminfo
-endif
+" Change viminfo location
+exec 'set viminfo+=n'.s:myVimDir.'/viminfo'
 
 " Change font on Win32 gVim
 if has("gui_running") && has("gui_win32")
   set guifont=Consolas:h8:cANSI
 endif
 
-" Color settings
-set background=dark
-highlight clear
-" basic colors
-hi Normal cterm=NONE ctermfg=252 ctermbg=16 gui=NONE guifg=#d0d0d0 guibg=#000000
-hi Cursor cterm=NONE ctermfg=16 ctermbg=252 gui=NONE guifg=#000000 guibg=#d0d0d0
-hi lCursor cterm=NONE ctermfg=bg ctermbg=fg gui=NONE guifg=bg guibg=fg
-" frame colors, etc
-hi VertSplit cterm=NONE ctermfg=232 ctermbg=232 gui=NONE guifg=#080808 guibg=#080808
-hi StatusLine cterm=NONE ctermfg=255 ctermbg=239 gui=NONE guifg=#eeeeee guibg=#4e4e4e
-hi StatusLineNc cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=#080808
-hi LineNr cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=#080808
-hi CursorLineNr cterm=NONE ctermfg=221 ctermbg=232 gui=NONE guifg=#ffd75f guibg=#080808
-hi WildMenu cterm=NONE ctermfg=221 ctermbg=232 gui=NONE guifg=#ffd75f guibg=#080808
-" hide
-hi Conceal cterm=NONE ctermfg=239 cterm=NONE gui=NONE guifg=#4e4e4e guibg=NONE
-hi EndOfBuffer cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
-hi Ignore cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
-" selection
-hi Visual ctermbg=237 guibg=#3a3a3a
-" red bg
-hi Search cterm=NONE ctermfg=NONE ctermbg=88 gui=NONE guifg=NONE guibg=#870000
-hi IncSearch cterm=NONE ctermfg=NONE ctermbg=160 gui=NONE guifg=NONE guibg=#d70000
-hi ErrorMsg cterm=bold ctermfg=225 ctermbg=160 gui=bold guifg=#ffdfff guibg=#d70000
-hi Error cterm=bold ctermfg=225 ctermbg=160 gui=bold guifg=#ffdfff guibg=#d70000
-hi WarningMsg cterm=bold ctermfg=225 ctermbg=160 gui=bold guifg=#ffdfff guibg=#d70000
-" cyan bold
-hi ModeMsg cterm=bold ctermfg=51 ctermbg=NONE gui=bold guifg=#00ffff guibg=NONE
-hi MoreMsg cterm=bold ctermfg=51 ctermbg=NONE gui=bold guifg=#00ffff guibg=NONE
-hi Question cterm=bold ctermfg=51 ctermbg=NONE gui=bold guifg=#00ffff guibg=NONE
-" magenta
-hi SpecialKey cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
-hi NonText cterm=NONE ctermfg=88 ctermbg=NONE gui=NONE guifg=#870000 guibg=NONE
-" comment
-hi Comment cterm=italic ctermfg=60 ctermbg=NONE gui=italic guifg=#5f5f87 guibg=NONE
-hi Todo cterm=italic,reverse ctermfg=60 ctermbg=NONE gui=italic,reverse guifg=#5f5f87 guibg=NONE
-" str & char
-hi String cterm=NONE ctermfg=43 ctermbg=NONE gui=NONE guifg=#00d7af guibg=NONE
-hi Character cterm=NONE ctermfg=43 ctermbg=NONE gui=NONE guifg=#00d7af guibg=NONE
-hi Special cterm=NONE ctermfg=43 ctermbg=NONE gui=NONE guifg=#00d7af guibg=NONE
-hi! link SpecialChar Special
-hi! link Delimiter Special
-hi! link SpecialComment Special
-hi! link Debug Special
-" pre proc
-hi PreProc cterm=NONE ctermfg=75 ctermbg=NONE gui=NONE guifg=#5fafff guibg=NONE
-hi! link Include PreProc
-hi! link Define PreProc
-hi! link Macro PreProc
-hi! link PreCondit PreProc
-" types
-hi Type cterm=NONE ctermfg=120 ctermbg=NONE gui=NONE guifg=#87ff87 guibg=NONE
-hi! link StorageClass Type
-hi! link Structure Type
-hi! link Typedef Type
-" const
-hi Constant cterm=NONE ctermfg=209 ctermbg=NONE gui=NONE guifg=#ff875f guibg=NONE
-hi! link Number Constant
-hi! link Boolean Constant
-hi! link Float Constant
-hi! link Function Constant
-" preserved words
-hi Statement cterm=NONE ctermfg=185 ctermbg=NONE gui=NONE guifg=#d7d75f guibg=NONE
-hi! link Conditional Statement
-hi! link Repeat Statement
-hi! link Label Statement
-hi! link Operator Statement
-hi! link Keyword Statement
-hi! link Exception Statement
-hi! link Identifier Statement
-" diff
-hi DiffAdd cterm=NONE ctermfg=NONE ctermbg=22 gui=NONE guifg=NONE guibg=#005f00
-hi DiffDelete cterm=NONE ctermfg=22 ctermbg=NONE gui=NONE guifg=#005f00 guibg=NONE
-hi DIffChange cterm=NONE ctermfg=NONE ctermbg=52 gui=NONE guifg=NONE guibg=#5f0000
-hi DiffText cterm=bold ctermfg=NONE ctermbg=124 gui=bold guifg=NONE guibg=#af0000
-" misc
-hi MatchParen cterm=underline ctermfg=198 ctermbg=NONE gui=underline guifg=#ff0087 guibg=NONE
-hi Folded cterm=NONE ctermfg=32 ctermbg=NONE gui=NONE guifg=#0087d7 guibg=NONE
-hi Underlined cterm=underline ctermfg=NONE ctermbg=NONE gui=underline guifg=NONE guibg=NONE
-" tab line
-hi TabLine cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=#080808
-hi TabLineFill cterm=NONE ctermfg=16 ctermbg=16 gui=NONE guifg=#000000 guibg=#000000
-hi TabLineSel cterm=NONE ctermfg=255 ctermbg=239 gui=NONE guifg=#eeeeee guibg=#4e4e4e
-hi Title cterm=NONE ctermfg=185 gui=NONE guifg=#d7d75f
-" directory
-hi Directory cterm=NONE ctermfg=43 gui=NONE guifg=#00d7af
-" pmenu
-hi Pmenu cterm=NONE ctermfg=252 ctermbg=232 gui=NONE guifg=#d0d0d0 guibg=#080808
-hi PmenuSel cterm=bold ctermfg=221 ctermbg=232 gui=bold guifg=#ffd75f guibg=#080808
-hi PmenuSbar ctermbg=232 guibg=#080808
-hi PmenuThumb ctermbg=239 guibg=#4e4e4e
-" diff file
-" The default highlighting for diff file is weird.
-" Force to set their values to workaround.
-hi diffRemoved cterm=NONE ctermfg=161 ctermbg=NONE gui=NONE guifg=#d7005f guibg=NONE
-hi diffAdded cterm=NONE ctermfg=41 ctermbg=NONE gui=NONE guifg=#00d75f guibg=NONE
-hi! link diffChanged Normal
-hi! link diffSubname Normal
-hi diffLine cterm=NONE ctermfg=75 ctermbg=NONE gui=NONE guifg=#5fafff guibg=NONE
-hi diffFile cterm=NONE ctermfg=229 ctermbg=NONE gui=NONE guifg=#ffffaf guibg=NONE
-" QuickFixLine not set
-" ToolbarLine, ToolbarButton not set
-" SpellBad, Spellcap, SpellRare, SpellLocal not set
-" SignColumn, FoldColumn not set
-" VisualNOS not set
-" StatusLineTerm, StatusLineTermNC not set
-" FoldColumn not set
-" Tag not set
+" Load my custom color scheme
+exec 'source '.s:myVimDir.'/color.vim'
 
 " Enhance color column color for better visibility when needed
 function! ToggleColorColumnEnhancement()
@@ -210,9 +101,9 @@ function! ToggleColorColumnEnhancement()
     let g:colorColumnEnhancement = !g:colorColumnEnhancement
   endif
   if g:colorColumnEnhancement
-    hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=52 gui=NONE guifg=NONE guibg=#5f0000
+    hi ColorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=52 gui=NONE guifg=NONE guibg=#5f0000
   else
-    hi ColorColumn cterm=NONE ctermfg=NONE ctermbg=232 gui=NONE guifg=NONE guibg=#080808
+    hi ColorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=232 gui=NONE guifg=NONE guibg=#080808
   endif
 endfunction
 call ToggleColorColumnEnhancement()
@@ -222,17 +113,17 @@ nnoremap <F11> :call ToggleColorColumnEnhancement()<CR>
 function! EnterInsertMode(mode)
   set ttimeoutlen=1
   if a:mode == 'i'
-    hi CursorColumn cterm=NONE ctermbg=17 guibg=#00005f
-    hi CursorLine cterm=NONE ctermbg=17 guibg=#00005f
+    hi CursorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=17 gui=NONE guifg=NONE guibg=#00005f
+    hi CursorLine term=NONE cterm=NONE ctermfg=NONE ctermbg=17 gui=NONE guifg=NONE guibg=#00005f
   else
-    hi CursorColumn cterm=NONE ctermbg=52 guibg=#5f0000
-    hi CursorLine cterm=NONE ctermbg=52 guibg=#5f0000
+    hi CursorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=52 gui=NONE guifg=NONE guibg=#5f0000
+    hi CursorLine term=NONE cterm=NONE ctermfg=NONE ctermbg=52 gui=NONE guifg=NONE guibg=#5f0000
   endif
 endfunction
 function! EnterNormalMode()
   set ttimeoutlen=-1
-  hi CursorLine cterm=NONE ctermbg=234 guibg=#1c1c1c
-  hi CursorColumn cterm=NONE ctermbg=234 guibg=#1c1c1c
+  hi CursorLine term=NONE cterm=NONE ctermfg=NONE ctermbg=234 gui=NONE guifg=NONE guibg=#1c1c1c
+  hi CursorColumn term=NONE cterm=NONE ctermfg=NONE ctermbg=234 gui=NONE guifg=NONE guibg=#1c1c1c
 endfunction
 au InsertEnter * call EnterInsertMode(v:insertmode)
 au InsertChange * call EnterInsertMode(v:insertmode)
@@ -304,13 +195,13 @@ function! SearchMatchPatterns(...)
   endif
 endfunction
 
-nmap <leader>1 :call SetMatchHighlight(0, '\c\<<C-R><C-W>\>')<CR>
-nmap <leader>2 :call SetMatchHighlight(1, '\c\<<C-R><C-W>\>')<CR>
-nmap <leader>3 :call SetMatchHighlight(2, '')<CR>
-nmap <leader>4 :call SetMatchHighlight(0, '\c')<Left><Left>
-nmap s :call SearchMatchPatterns()<CR>
-nmap S :call SearchMatchPatterns('b')<CR>
-nmap <leader>` :noh <BAR> call ClearMatchHighlights()<CR>
+nnoremap <leader>1 :call SetMatchHighlight(0, '\c\<<C-R><C-W>\>')<CR>
+nnoremap <leader>2 :call SetMatchHighlight(1, '\c\<<C-R><C-W>\>')<CR>
+nnoremap <leader>3 :call SetMatchHighlight(2, '')<CR>
+nnoremap <leader>4 :call SetMatchHighlight(0, '\c')<Left><Left>
+nnoremap s :call SearchMatchPatterns()<CR>
+nnoremap S :call SearchMatchPatterns('b')<CR>
+nnoremap <leader>` :noh <BAR> call ClearMatchHighlights()<CR>
 
 " Session recovering
 function! GetCurrentSession()
@@ -339,11 +230,7 @@ function! ClangFormat(isAll)
   if a:isAll == 0
     unlet l:lines
   endif
-  if has("win32")
-    pyf ~/vimfiles/clang-format.py
-  else
-    py3f ~/.vim/clang-format.py
-  endif
+  exec 'py3f '.s:myVimDir.'/clang-format.py'
 endfunction
 if has("win32")
   let g:clang_format_path = 'clang-format.bat'
