@@ -133,7 +133,11 @@ ino <C-C> <ESC>
 call EnterNormalMode()
 
 " Effect of statusline
-hi! link User1 ErrorMsg
+" In my design, User1 should be same as ErrorMsg. But when a window is
+" switched to not-current state, the highlight link does not work. Before I get
+" the root cause, define User1 explicitly to workaround.
+hi User1 term=NONE cterm=NONE ctermfg=255 ctermbg=160 gui=NONE guifg=#eeeeee guibg=#d70000
+" hi! link User1 ErrorMsg
 function! GetModifiedPrefix(isModified)
   if &modified == a:isModified
     return '['.bufnr("%").']'.fnamemodify(bufname("%"),':t')
