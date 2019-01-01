@@ -20,6 +20,7 @@ hi StatusLineNC term=NONE cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4
 hi! link LineNr StatusLineNC
 hi! link TabLine StatusLineNC
 hi! link TabLineFill StatusLineNC
+hi! link FoldColumn StatusLineNC
 hi CursorLineNr term=NONE cterm=NONE ctermfg=221 ctermbg=232 gui=NONE guifg=#ffd75f guibg=#080808
 hi! link WildMenu CursorLineNr
 hi Title term=NONE cterm=NONE ctermfg=221 gui=NONE guifg=#ffd75f guibg=NONE
@@ -52,18 +53,21 @@ hi! link Question ModeMsg
 " Terminal
 hi! link StatusLineTerm StatusLine
 hi! link StatusLineTermNC StatusLineNC
-" Misc
+" Selection
 hi Visual term=NONE cterm=NONE ctermfg=NONE ctermbg=236 gui=NONE guifg=NONE guibg=#303030
+hi! link VisualNOS Visual
+" Spell
+hi SpellBad NONE
+hi SpellCap NONE
+hi SpellLocal NONE
+hi SpellRare NONE
+" Misc
 hi MatchParen term=NONE cterm=underline ctermfg=198 ctermbg=NONE gui=underline guifg=#ff0087 guibg=NONE
 hi Folded term=NONE cterm=NONE ctermfg=32 ctermbg=NONE gui=NONE guifg=#0087d7 guibg=NONE
 hi! link Directory Type
-" QuickFixLine not set
-" ToolbarLine, ToolbarButton not set
-" SpellBad, Spellcap, SpellRare, SpellLocal not set
-" SignColumn, FoldColumn not set
-" VisualNOS not set
-" FoldColumn not set
-" CursorColumn, CursorLine, ColorColumn not set
+" SignColumn not set
+" QuickFixLine, ToolbarLine, ToolbarButton not set (GUI only?)
+" CursorColumn, CursorLine, ColorColumn not set (should be set in vimrc)
 
 " Syntax section
 " Comment
