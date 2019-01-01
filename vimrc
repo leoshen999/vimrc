@@ -149,7 +149,9 @@ function! GetModifiedPrefix(isModified)
   endif
 endfunction
 set statusline=%1*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
-au TerminalOpen * setlocal statusline=%2*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
+if has('terminal')
+  au TerminalOpen * setlocal statusline=%2*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
+endif
 
 " Multiple keyword marks
 hi MyKeyword0 cterm=bold,reverse gui=bold,reverse
