@@ -49,6 +49,9 @@ hi! link SpecialKey Conceal
 hi ModeMsg term=NONE cterm=NONE ctermfg=51 ctermbg=NONE gui=NONE guifg=#00ffff guibg=NONE
 hi! link MoreMsg ModeMsg
 hi! link Question ModeMsg
+" Terminal
+hi! link StatusLineTerm StatusLine
+hi! link StatusLineTermNC StatusLineNC
 " Misc
 hi Visual term=NONE cterm=NONE ctermfg=NONE ctermbg=236 gui=NONE guifg=NONE guibg=#303030
 hi MatchParen term=NONE cterm=underline ctermfg=198 ctermbg=NONE gui=underline guifg=#ff0087 guibg=NONE
@@ -59,7 +62,6 @@ hi! link Directory Type
 " SpellBad, Spellcap, SpellRare, SpellLocal not set
 " SignColumn, FoldColumn not set
 " VisualNOS not set
-" StatusLineTerm, StatusLineTermNC not set
 " FoldColumn not set
 " CursorColumn, CursorLine, ColorColumn not set
 

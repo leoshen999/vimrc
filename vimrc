@@ -139,6 +139,7 @@ call EnterNormalMode()
 " NOTE2 : ctermfg/guifg cannot be same as the ones of StatusLine or the color
 " will be wrong in not-current window. Use a very similar color to workaround.
 hi User1 term=NONE cterm=NONE ctermfg=254 ctermbg=160 gui=NONE guifg=#e4e4e4 guibg=#d70000
+hi User2 term=NONE cterm=NONE ctermfg=254 ctermbg=20 gui=NONE guifg=#e4e4e4 guibg=#0000d7
 " hi! link User1 ErrorMsg
 function! GetModifiedPrefix(isModified)
   if &modified == a:isModified
@@ -148,6 +149,7 @@ function! GetModifiedPrefix(isModified)
   endif
 endfunction
 set statusline=%1*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
+au TerminalOpen * setlocal statusline=%2*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
 
 " Multiple keyword marks
 hi MyKeyword0 cterm=bold,reverse gui=bold,reverse
