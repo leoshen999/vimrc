@@ -16,11 +16,11 @@ hi! link lCursor Cursor
 " Frame
 hi StatusLine term=NONE cterm=NONE ctermfg=255 ctermbg=239 gui=NONE guifg=#eeeeee guibg=#4e4e4e
 hi! link TabLineSel StatusLine
+hi! link FoldColumn StatusLine
 hi StatusLineNC term=NONE cterm=NONE ctermfg=239 ctermbg=232 gui=NONE guifg=#4e4e4e guibg=#080808
 hi! link LineNr StatusLineNC
 hi! link TabLine StatusLineNC
 hi! link TabLineFill StatusLineNC
-hi! link FoldColumn StatusLineNC
 hi CursorLineNr term=NONE cterm=NONE ctermfg=221 ctermbg=232 gui=NONE guifg=#ffd75f guibg=#080808
 hi! link WildMenu CursorLineNr
 hi Title term=NONE cterm=NONE ctermfg=221 gui=NONE guifg=#ffd75f guibg=NONE
