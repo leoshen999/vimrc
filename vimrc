@@ -133,10 +133,12 @@ ino <C-C> <ESC>
 call EnterNormalMode()
 
 " Effect of statusline
-" In my design, User1 should be same as ErrorMsg. But when a window is
-" switched to not-current state, the highlight link does not work. Before I get
-" the root cause, define User1 explicitly to workaround.
-hi User1 term=NONE cterm=NONE ctermfg=255 ctermbg=160 gui=NONE guifg=#eeeeee guibg=#d70000
+" NOTE1 : User1 should be same as ErrorMsg. But when a window is switched to
+" not-current state, the highlight link does not work. Before I get the root
+" cause, define User1 explicitly to workaround.
+" NOTE2 : ctermfg/guifg cannot be same as the ones of StatusLine or the color
+" will be wrong in not-current window. Use a very similar color to workaround.
+hi User1 term=NONE cterm=NONE ctermfg=254 ctermbg=160 gui=NONE guifg=#e4e4e4 guibg=#d70000
 " hi! link User1 ErrorMsg
 function! GetModifiedPrefix(isModified)
   if &modified == a:isModified
