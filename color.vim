@@ -10,7 +10,7 @@ let g:colors_name = "leoshen256"
 
 " General section
 " Basic
-hi Normal term=NONE cterm=NONE ctermfg=248 ctermbg=16 gui=NONE guifg=#a8a8a8 guibg=#000000
+hi Normal term=NONE cterm=NONE ctermfg=250 ctermbg=16 gui=NONE guifg=#bcbcbc guibg=#000000
 hi Cursor term=NONE cterm=NONE ctermfg=bg ctermbg=fg gui=NONE guifg=bg guibg=fg
 hi! link lCursor Cursor
 " Frame
@@ -71,8 +71,8 @@ hi! link Directory Type
 
 " Syntax section
 " Comment
-hi Comment term=NONE cterm=italic ctermfg=239 ctermbg=NONE gui=italic guifg=#4e4e4e guibg=NONE
-hi Todo term=NONE cterm=italic,reverse ctermfg=239 ctermbg=NONE gui=italic,reverse guifg=#4e4e4e guibg=NONE
+hi Comment term=NONE cterm=italic ctermfg=240 ctermbg=NONE gui=italic guifg=#585858 guibg=NONE
+hi Todo term=NONE cterm=italic,reverse ctermfg=240 ctermbg=NONE gui=italic,reverse guifg=#585858 guibg=NONE
 " Constant & number
 hi Constant term=NONE cterm=NONE ctermfg=173 ctermbg=NONE gui=NONE guifg=#d7875f guibg=NONE
 hi! link Number Constant
