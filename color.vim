@@ -123,5 +123,5 @@ hi diffRemoved term=NONE cterm=NONE ctermfg=174 ctermbg=NONE gui=NONE guifg=#d78
 hi! link diffChanged Normal
 hi! link diffSubname Normal
 hi diffLine term=NONE cterm=NONE ctermfg=110 ctermbg=NONE gui=NONE guifg=#87afd7 guibg=NONE
-hi diffFile term=NONE cterm=NONE ctermfg=173 ctermbg=NONE gui=NONE guifg=#d7875f guibg=NONE
+hi diffFile term=NONE cterm=NONE ctermfg=140 ctermbg=NONE gui=NONE guifg=#af87d7 guibg=NONE
 
