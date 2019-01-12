@@ -158,7 +158,7 @@ function! GetModifiedPrefix(isModified)
   endif
 endfunction
 set statusline=%1*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
-if has('terminal')
+if exists('##TerminalOpen')
   au TerminalOpen * setlocal statusline=%2*%{GetModifiedPrefix(1)}%*%{GetModifiedPrefix(0)}%=%l/%L:%c
 endif
 
