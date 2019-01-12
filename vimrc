@@ -61,8 +61,8 @@ if !has("gui_running")
 endif
 
 " Shortcuts
-nnoremap <C-PageDown> gt
-nnoremap <C-PageUp> gT
+nnoremap <C-PageDown> :tabnext<cr>
+nnoremap <C-PageUp> :tabprevious<cr>
 nnoremap <C-Left> <C-W>h
 nnoremap <C-Down> <C-W>j
 nnoremap <C-Up> <C-W>k
@@ -78,6 +78,15 @@ nnoremap <leader>b :b#<cr>
 nnoremap <leader>n :echo expand('%:p')<cr>
 nnoremap <leader>dt :difft<cr>
 nnoremap <leader>do :diffo<cr>
+if has('terminal')
+  nnoremap <leader>tm :terminal<cr>
+  tnoremap <C-PageDown> <C-W>:tabnext<cr>
+  tnoremap <C-PageUp> <C-W>:tabprevious<cr>
+  tnoremap <C-Left> <C-W>h
+  tnoremap <C-Down> <C-W>j
+  tnoremap <C-Up> <C-W>k
+  tnoremap <C-Right> <C-W>l
+endif
 " Not really used now
 "nnoremap <leader>cd :cd %:p:h<cr>:pwd<cr>
 "nnoremap <C-J> Lzz
