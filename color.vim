@@ -71,8 +71,8 @@ hi! link Directory Type
 
 " Syntax section
 " Comment
-hi Comment term=NONE cterm=italic ctermfg=240 ctermbg=NONE gui=italic guifg=#585858 guibg=NONE
-hi Todo term=NONE cterm=italic,reverse ctermfg=240 ctermbg=NONE gui=italic,reverse guifg=#585858 guibg=NONE
+hi Comment term=NONE cterm=NONE ctermfg=239 ctermbg=NONE gui=NONE guifg=#4e4e4e guibg=NONE
+hi Todo term=NONE cterm=reverse ctermfg=239 ctermbg=NONE gui=reverse guifg=#4e4e4e guibg=NONE
 " Constant & number
 hi Constant term=NONE cterm=NONE ctermfg=173 ctermbg=NONE gui=NONE guifg=#d7875f guibg=NONE
 hi! link Number Constant
