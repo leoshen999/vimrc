@@ -286,6 +286,9 @@ function! OpenComplementFile()
 endfunction
 nnoremap <leader>g :call OpenComplementFile()<CR>
 
+" Recognize filetype: gn
+au BufRead,BufNewFile *.gn set filetype=gn
+
 " Vim-plug settings
 " not used recently
 "call plug#begin('~/vimfiles/plugged')
