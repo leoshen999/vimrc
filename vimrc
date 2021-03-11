@@ -262,7 +262,7 @@ nnoremap <leader>ff :call ClangFormat(1)<cr>
 vnoremap <leader>f :call ClangFormat(0)<cr>
 
 " Open complement file according to extension
-" c/cpp/cc <--> h/hpp
+" c/cpp/cc/mm <--> h/hpp
 function! OpenComplementFile()
   let l:filename = expand('%:r')
   let l:extension = expand('%:e')
@@ -271,10 +271,12 @@ function! OpenComplementFile()
       exe 'e '.l:filename.'.c'
     elseif filereadable( l:filename.'.cc' )
       exe 'e '.l:filename.'.cc'
+    elseif filereadable( l:filename.'.mm' )
+      exe 'e '.l:filename.'.mm'
     else
       exe 'e '.l:filename.'.cpp'
     endif
-  elseif l:extension == 'c' || l:extension == 'cpp' || l:extension == 'cc'
+  elseif l:extension == 'c' || l:extension == 'cpp' || l:extension == 'cc' || l:extension == 'mm'
     if filereadable( l:filename.'.hpp' )
       exe 'e '.l:filename.'.hpp'
     else
