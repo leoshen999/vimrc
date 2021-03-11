@@ -289,6 +289,9 @@ nnoremap <leader>g :call OpenComplementFile()<CR>
 " Recognize filetype: gn
 au BufRead,BufNewFile *.gn set filetype=gn
 
+" Temporally set filetype to javascript for jsx, ts, tsx
+au BufRead,BUfNewFile *.jsx,*.ts,*.tsx set filetype=javascript
+
 " Vim-plug settings
 " not used recently
 "call plug#begin('~/vimfiles/plugged')
