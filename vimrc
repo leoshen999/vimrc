@@ -118,6 +118,7 @@ function! ToggleColorColumnEnhancement()
 endfunction
 call ToggleColorColumnEnhancement()
 nnoremap <F11> :call ToggleColorColumnEnhancement()<CR>
+nnoremap <leader>- :call ToggleColorColumnEnhancement()<CR>
 
 " Effect of normal/insert mode
 function! EnterInsertMode(mode)
@@ -243,6 +244,7 @@ nnoremap <S-F8> :wa <BAR> tabnew <BAR> tabonly <BAR> exe "so ".GetCurrentSession
 " This may be useful since highlight sometimes crashed when using folding.
 " Redraw to clean redundant pixels color caused by rendering error.
 nnoremap <F12> :syn sync fromstart <CR><C-L>
+nnoremap <leader>= :syn sync fromstart <CR><C-L>
 
 " Python script for clang-format
 function! ClangFormat(isAll)
