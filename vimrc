@@ -42,6 +42,7 @@ set virtualedit=onemore
 set laststatus=2
 set pastetoggle=<F2>
 set whichwrap+=<,>,[,]
+set belloff=all
 
 " colorcolumn should be 72 for gitcommit
 function! OnSynxtaxIsSet()
